@@ -359,6 +359,34 @@ int CwxCommon::snprintf(char *buf, size_t maxlen, const char *format, ...)
     return result;
 }
 
+char* CwxCommon::toHex(unsigned char const* src, uint32_t src_len, char* dest, uint32_t& dest_len) {
+  uint32_t i;
+  unsigned char high, low;
+  if (dest_len < 3) {
+    dest[0] = 0x00;
+    dest_len = 0;
+    return dest;
+  }
+  if (src_len > (dest_len - 1) / 2) src_len = (dest_len - 1) / 2;
+  for (i = 0; i < src_len; i++) {
+    high = src[i] >> 4;
+    low = src[i] & 0x0f;
+    high += 0x30;
+    if (high > 0x39)
+      dest[i * 2] = high + 0x27;
+    else
+      dest[i * 2] = high;
+    low += 0x30;
+    if (low > 0x39)
+      dest[i * 2 + 1] = low + 0x27;
+    else
+      dest[i * 2 + 1] = low;
+  }
+  dest_len = src_len * 2;
+  dest[dest_len] = 0x00;
+  return dest;
+}
+
 CWINUX_END_NAMESPACE
 
 

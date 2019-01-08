@@ -247,6 +247,10 @@ public:
     inline CwxEventInfo& event() ;
     ///获取与Block相关的发送Msginfo信息。其设置有架构负责，用户只能在消息发送失败或完成的时候，查看此信息
     inline CwxMsgSendCtrl& send_ctrl();
+    // 设置event
+    inline void set_event(CwxEventInfo const& event);
+    // 设置ctrl
+    inline void set_send_ctrl(CwxMsgSendCtrl const& send_ctrl);
 public:
     CwxMsgBlock*          m_next;///<下一个Block对象
 private:

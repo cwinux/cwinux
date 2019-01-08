@@ -338,6 +338,15 @@ inline CwxMsgSendCtrl& CwxMsgBlock::send_ctrl()
     return m_sendCtrl;
 }
 
+// 设置event
+inline void CwxMsgBlock::set_event(CwxEventInfo const& event) {
+  memcpy(&m_event, &event, sizeof(event));
+}
+// 设置ctrl
+inline void CwxMsgBlock::set_send_ctrl(CwxMsgSendCtrl const& send_ctrl) {
+  memcpy(&m_sendCtrl, &send_ctrl, sizeof(send_ctrl));
+}
+
 inline CwxMsgBlock::~CwxMsgBlock()
 {
     if (m_buf) free(m_buf);

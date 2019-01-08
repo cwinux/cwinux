@@ -166,8 +166,6 @@ int CwxAppProcessMgr::checkRunCmd(char const* app_name)
 #endif
 {
     pid_t pid;
-    char szProcFile[256];
-
 #ifndef WITH_CWINUX_GFLAGS
     CwxFile::getLastDirName(argv[0], m_strAppName);
 #else
@@ -188,9 +186,7 @@ int CwxAppProcessMgr::checkRunCmd(char const* app_name)
         app.help();
         return 0==iRet?0:-1;
     }
-
-    sprintf(szProcFile, "%s%s.pid", app.getWordDir(), m_strAppName.c_str());
-    m_strPorcfile = szProcFile;
+    m_strPorcfile = string(argv[0])+ ".pid";
 
     if (app.isCmdRestart() || app.isCmdStop())
     {

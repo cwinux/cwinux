@@ -44,6 +44,9 @@ libcwxcmn_la_SOURCES = \
 	CwxCrc32.cpp\
 	CwxIniParse.cpp\
 	CwxMd5.cpp\
+	CwxSha.cpp\
+	CwxRsa.cpp\
+	CwxAes.cpp\
 	CwxFbHash.cpp
 
 libcwxcmn_la_LDFLAGS = 
@@ -149,6 +152,9 @@ cwxcmninclude_HEADERS=\
     ../include/CwxCrc32.h\
     ../include/CwxIniParse.h\
     ../include/CwxMd5.h\
+    ../include/CwxSha.h\
+    ../include/CwxRsa.h\
+    ../include/CwxAes.h\
     ../include/CwxFbHash.h
 
 	

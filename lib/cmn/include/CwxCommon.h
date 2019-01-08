@@ -191,6 +191,11 @@ public:
     @return 返回src
     */
     static char* upper(char* src);
+    /**
+    @brief 将src中的自己变为小写的hex。
+    @return 返回desc
+    */
+    static char* toHex(unsigned char const* src, uint32_t src_len, char* dest, uint32_t& dest_len);
     ///将szIP的点格式的网络地址变为网络字节序的整数
     static CWX_UINT32 ipDot2Int(char const* szIp);
     ///将网络字节序的整数变为点格式的地址字符串

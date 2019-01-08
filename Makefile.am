@@ -1,5 +1,5 @@
 
-SUBDIRS = lib/cmn/src lib/net/src lib/app/src 
+SUBDIRS = lib/cmn/src lib/net/src lib/app/src test
 
 doc:
 	cd lib/cmn/src&&make doc&&cd ../../../
