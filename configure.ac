@@ -1,9 +1,9 @@
 # Required initializer
 AC_PREREQ(2.52)
-AC_INIT
+AC_INIT(cwinux, 1.0, cwninux@gmail.com)
 
 # Automake initialization
-AM_INIT_AUTOMAKE(cwinux, 1.0)
+AM_INIT_AUTOMAKE(cwinux,1.0)
 AC_PROG_MAKE_SET
 
 # Add a test for a compiler.
@@ -11,7 +11,8 @@ m4_include([ax_cxx_compile_stdcxx_0x.m4])
 
 AC_PROG_CC
 AC_PROG_CXX
-AM_PROG_LIBTOOL
+#AM_PROG_LIBTOOL
+LT_INIT
 AX_CXX_COMPILE_STDCXX_0X
 if test "x$ax_cv_cxx_compile_cxx0x_cxx" = "xyes" ; then
     CXXFLAGS="$CXXFLAGS -std=c++0x"
